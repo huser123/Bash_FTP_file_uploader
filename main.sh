@@ -42,5 +42,12 @@ quit
 END_SCRIPT
 #exit 0 
 
+### User check
 
-xdg-open http://domain.tld/$masik
+userType="$(whoami)"
+if [ "$userType" = "root" ]
+then
+    echo "http://domain.tld/"$masik
+else
+    xdg-open http://domain.tld/$masik
+fi
